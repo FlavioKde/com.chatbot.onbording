@@ -11,7 +11,7 @@ public class KnowledgeEntityMapper {
             Knowledge knowledge = new Knowledge();
             knowledge.setId(knowledgeEntity.getId());
             knowledge.setQuestion(knowledgeEntity.getQuestion());
-            knowledge.setResponse(knowledgeEntity.getResponse());
+            knowledge.setAnswer(knowledgeEntity.getAnswer());
 
             return knowledge;
     }
@@ -23,7 +23,7 @@ public class KnowledgeEntityMapper {
         KnowledgeEntity knowledgeEntity = new KnowledgeEntity();
         knowledgeEntity.setId(knowledge.getId());
         knowledgeEntity.setQuestion(knowledge.getQuestion());
-        knowledgeEntity.setResponse(knowledge.getResponse());
+        knowledgeEntity.setAnswer(knowledge.getAnswer());
 
         return knowledgeEntity;
     }
