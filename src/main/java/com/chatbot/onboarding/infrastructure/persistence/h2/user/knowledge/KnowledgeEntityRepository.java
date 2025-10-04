@@ -1,7 +1,6 @@
 package com.chatbot.onboarding.infrastructure.persistence.h2.user.knowledge;
 
-import com.chatbot.onboarding.domain.knowledge.Knowledge;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface KnowledgeRepository extends CrudRepository<Knowledge,Long> {
+public interface KnowledgeEntityRepository extends JpaRepository<KnowledgeEntity,Long> {
 }
