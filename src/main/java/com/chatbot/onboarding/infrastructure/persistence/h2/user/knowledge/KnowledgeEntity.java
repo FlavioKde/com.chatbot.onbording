@@ -12,15 +12,15 @@ public class KnowledgeEntity {
     @Column(nullable = false)
     private String question;
     @Column(nullable = false)
-    private String response;
+    private String answer;
 
     public KnowledgeEntity() {
 
     }
 
-    public KnowledgeEntity(String question, String response) {
+    public KnowledgeEntity(String question, String answer) {
         this.question = question;
-        this.response = response;
+        this.answer = answer;
     }
 
     public Long getId() {
@@ -39,14 +39,11 @@ public class KnowledgeEntity {
         this.question = question;
     }
 
-    public String getResponse() {
-        return response;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
-
-
-
 }

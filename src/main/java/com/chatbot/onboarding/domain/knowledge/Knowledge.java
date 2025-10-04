@@ -4,15 +4,15 @@ public class Knowledge {
 
         private Long id;
         private String question;
-        private String response;
+        private String answer;
 
         public Knowledge() {
 
         }
 
-        public Knowledge(String question, String response) {
+        public Knowledge(String question, String answer) {
             this.question = question;
-            this.response = response;
+            this.answer = answer;
         }
 
          public Long getId() {
@@ -31,11 +31,11 @@ public class Knowledge {
             this.question = question;
         }
 
-        public String getResponse() {
-            return response;
+         public String getAnswer() {
+            return answer;
         }
 
-        public void setResponse(String response) {
-            this.response = response;
+        public void setAnswer(String answer) {
+            this.answer = answer;
         }
 }
