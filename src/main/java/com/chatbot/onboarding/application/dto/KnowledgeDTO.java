@@ -13,6 +13,7 @@ public class KnowledgeDTO {
         public KnowledgeDTO(Long id, String question, String answer) {
             this.id = id;
             this.question = question;
+            this.answer = answer;
         }
 
         public Long getId() {

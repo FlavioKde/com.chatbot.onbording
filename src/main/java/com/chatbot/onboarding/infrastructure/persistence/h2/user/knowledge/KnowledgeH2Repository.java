@@ -42,5 +42,10 @@ public class KnowledgeH2Repository implements KnowledgeRepository {
                 knowledgeEntityRepository.deleteById(id);
             }
 
+            @Override
+            public Optional<Knowledge> findByQuestion(String question) {
+                return knowledgeEntityRepository.findByQuestion(question).map(KnowledgeEntityMapper::toDomain);
+            }
+
 
 }
