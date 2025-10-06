@@ -1,5 +1,7 @@
 package com.chatbot.onboarding.domain.chatbot;
 
+import com.chatbot.onboarding.shared.exception.exceptions.KnowledgeNotFoundException;
+
 public class Chatbot {
 
         private final KnowledgeFinder knowledgeFinder;
@@ -11,7 +13,7 @@ public class Chatbot {
         public String responseTo(String question) {
 
             return knowledgeFinder.findAnswerFor(question)
-                    .orElseThrow(() -> new RuntimeException("No answer found for question " + question));
+                    .orElseThrow(() -> new KnowledgeNotFoundException(question));
 
         }
 }
