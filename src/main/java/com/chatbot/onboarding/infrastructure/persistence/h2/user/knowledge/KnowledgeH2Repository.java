@@ -47,5 +47,8 @@ public class KnowledgeH2Repository implements KnowledgeRepository {
                 return knowledgeEntityRepository.findByQuestion(question).map(KnowledgeEntityMapper::toDomain);
             }
 
-
+            @Override
+            public List<Knowledge> findByQuestionContainingIgnoreCase(String keyword) {
+                return knowledgeEntityRepository.findByQuestionContainingIgnoreCase(keyword).stream().map(KnowledgeEntityMapper::toDomain).collect(Collectors.toList());
+            }
 }
