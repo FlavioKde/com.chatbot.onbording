@@ -1,0 +1,112 @@
+package com.chatbot.onboarding;
+
+import com.chatbot.onboarding.application.service.KnowledgeService;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
+
+import java.util.Scanner;
+
+@Profile("!test")
+@Component
+public class StartupRunner implements CommandLineRunner {
+        /*
+        private final KnowledgeService knowledgeService;
+
+        public StartupRunner(KnowledgeService knowledgeService) {
+            this.knowledgeService = knowledgeService;
+
+        }
+
+        @Override
+        public void run(String... args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Hello, can´t i help you");
+            System.out.println("Ask me anything or type 'exit' to quit.");
+
+
+            while (true) {
+                System.out.print("> ");
+                String input = scanner.nextLine();
+
+                if (input.equalsIgnoreCase("exit")) {
+                    System.out.println("Goodbye!");
+                    System.exit(0);
+                    break;
+                }
+
+                String response = knowledgeService.getResponse(input);
+                System.out.println(response);
+            }
+        }
+
+         */
+
+
+
+
+
+    private final KnowledgeService knowledgeService;
+
+    public StartupRunner(KnowledgeService knowledgeService) {
+        this.knowledgeService = knowledgeService;
+    }
+
+    @Override
+    public void run(String... args) {
+        System.out.println("DEBUG: hilo de consola iniciado");
+        startConsoleInSeparateThread();
+
+        System.out.println("=== Sistema de Onboarding Iniciado ===");
+        System.out.println(" API REST disponible en: http://localhost:8080/api");
+        System.out.println(" H2 Console disponible en: http://localhost:8080/h2-console");
+        System.out.println(" Consola interactiva activa - Escribe tus preguntas abajo:");
+        System.out.println();
+
+        if (System.console() != null) {
+            System.out.println(" Consola interactiva activa - Escribe tus preguntas abajo:");
+            startConsoleInSeparateThread();
+        } else {
+            System.out.println(" ⚠️ Entrada interactiva no disponible en este entorno.");
+            System.out.println(" Podés usar la API REST o la consola H2 para interactuar.");
+        }
+
+
+    }
+
+    private void startConsoleInSeparateThread() {
+        Thread consoleThread = new Thread(() -> {
+            try {
+                System.out.println("DEBUG: hilo de consola iniciado");
+                Thread.sleep(2000);
+
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Asistente de Onboarding listo. Escribe 'exit' para salir.");
+                System.out.println("DEBUG: esperando entrada...");
+                while (true) {
+                    System.out.print(" Tú: ");
+                    String input = scanner.nextLine().trim();
+
+                    if (input.equalsIgnoreCase("exit")) {
+                        System.out.println("¡Hasta pronto!");
+                        break;
+                    }
+
+                    if (!input.isEmpty()) {
+                        String response = knowledgeService.getResponse(input);
+                        System.out.println("Bot: " + response);
+                        System.out.println();
+                    }
+                }
+
+                scanner.close();
+            } catch (Exception e) {
+                System.out.println("Error en la consola: " + e.getMessage());
+            }
+        });
+
+        consoleThread.setDaemon(true); // No evita que Spring se cierre
+        consoleThread.start();
+    }
+
+}
