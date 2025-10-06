@@ -12,5 +12,6 @@ public interface KnowledgeRepository {
         Optional<Knowledge> findByQuestion(String question);
         List<Knowledge> findAll();
         void deletedById(Long id);
+        List<Knowledge> findByQuestionContainingIgnoreCase(String keyword);
 
 }

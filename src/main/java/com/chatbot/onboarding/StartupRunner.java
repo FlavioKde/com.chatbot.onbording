@@ -10,41 +10,6 @@ import java.util.Scanner;
 @Profile("!test")
 @Component
 public class StartupRunner implements CommandLineRunner {
-        /*
-        private final KnowledgeService knowledgeService;
-
-        public StartupRunner(KnowledgeService knowledgeService) {
-            this.knowledgeService = knowledgeService;
-
-        }
-
-        @Override
-        public void run(String... args) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Hello, can´t i help you");
-            System.out.println("Ask me anything or type 'exit' to quit.");
-
-
-            while (true) {
-                System.out.print("> ");
-                String input = scanner.nextLine();
-
-                if (input.equalsIgnoreCase("exit")) {
-                    System.out.println("Goodbye!");
-                    System.exit(0);
-                    break;
-                }
-
-                String response = knowledgeService.getResponse(input);
-                System.out.println(response);
-            }
-        }
-
-         */
-
-
-
-
 
     private final KnowledgeService knowledgeService;
 

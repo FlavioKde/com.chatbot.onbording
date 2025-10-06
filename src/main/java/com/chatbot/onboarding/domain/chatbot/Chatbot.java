@@ -1,6 +1,9 @@
 package com.chatbot.onboarding.domain.chatbot;
 
+import com.chatbot.onboarding.domain.knowledge.Knowledge;
 import com.chatbot.onboarding.shared.exception.exceptions.KnowledgeNotFoundException;
+
+import java.util.List;
 
 public class Chatbot {
 
@@ -12,8 +15,12 @@ public class Chatbot {
 
         public String responseTo(String question) {
 
-            return knowledgeFinder.findAnswerFor(question)
-                    .orElseThrow(() -> new KnowledgeNotFoundException(question));
+            List<Knowledge> matches = knowledgeFinder.findByQuestionContainingIgnoreCase(question);
 
+            if (matches.isEmpty()) {
+                throw new KnowledgeNotFoundException(question);
+
+            }
+            return matches.get(0).getAnswer();
         }
 }

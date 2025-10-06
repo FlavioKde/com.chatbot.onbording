@@ -1,9 +1,14 @@
 package com.chatbot.onboarding.infrastructure.persistence.h2.user.knowledge;
 
 import com.chatbot.onboarding.domain.chatbot.KnowledgeFinder;
+import com.chatbot.onboarding.domain.knowledge.Knowledge;
 import org.springframework.stereotype.Repository;
+import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class KnowledgeH2Finder implements KnowledgeFinder {
@@ -15,8 +20,30 @@ public class KnowledgeH2Finder implements KnowledgeFinder {
         }
 
         @Override
-    public Optional<String> findAnswerFor(String question) {
+        public Optional<String> findAnswerFor(String question) {
             return knowledgeEntityRepository.findByQuestion(question)
                     .map(KnowledgeEntity::getAnswer);
+        }
+
+        @Override
+        public List<Knowledge>findByQuestionContainingIgnoreCase(String keyword) {
+            /*
+            return knowledgeEntityRepository.findByQuestionContainingIgnoreCase(keyword)
+                    .stream()
+                    .map(KnowledgeEntityMapper::toDomain)
+                    .collect(Collectors.toList());
+
+             */
+
+            String[] keywords = keyword.split("\\s+");
+
+            return knowledgeEntityRepository.findAll().stream()
+                    .filter(k -> {
+                        String question = k.getQuestion().toLowerCase();
+                        return Arrays.stream(keywords)
+                                .allMatch(word -> question.contains(word.toLowerCase()));
+                    })
+                    .map(KnowledgeEntityMapper::toDomain)
+                    .collect(Collectors.toList());
         }
 }
