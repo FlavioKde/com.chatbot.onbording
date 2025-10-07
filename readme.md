@@ -105,12 +105,12 @@ java -jar build/libs/onboarding-chatbot-0.0.1-SNAPSHOT.jar
 
 Once the application is running (you'll see Spring Boot startup messages in the terminal), you can access the following endpoints:
 
-Component	                             URL                                     Purpose
-
-API REST	                   http://localhost:8080/api	                    Main Api endpoints
-Swagger UI	            http://localhost:8080/swagger-ui/index.html	    Interactive APIDocumentation 
-H2 Console	                   http://localhost:8080/h2-console	         In-memory database management
-Health Check	            http://localhost:8080/actuator/health	         Application status
+|    Component     |                   URL                         |           Purpose             |
+|:----------------:|:---------------------------------------------:|:------------------------------|
+| **API REST**     | `http://localhost:8080/api`                   | Main API endpoints |
+| **Swagger UI**   | `http://localhost:8080/swagger-ui/index.html` | Interactive API documentation |
+| **H2 Console**   | `http://localhost:8080/h2-console`            | In-memory database management |
+| **Health Check** | `http://localhost:8080/actuator/health`       | Application status |
 
 
 ### H2 Database Configuration
@@ -176,6 +176,7 @@ Includes:
 
 Flavio — freelance WebDeveloper  
 Les Fonts de Terrassa, Catalunya  
+
 
 
 
