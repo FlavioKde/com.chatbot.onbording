@@ -11,6 +11,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(ApiConfig.API_BASE_PATH)
 public class KnowledgeController {
@@ -36,5 +38,12 @@ public class KnowledgeController {
             String response = knowledgeService.getResponse(question);
 
             return ResponseEntity.ok(response);
+        }
+
+        @GetMapping("/getAllKnowledge")
+        public ResponseEntity<List<Knowledge>> getAllKnowledge(){
+            List<Knowledge> knowledge = knowledgeService.findAll();
+
+            return ResponseEntity.ok(knowledge);
         }
 }

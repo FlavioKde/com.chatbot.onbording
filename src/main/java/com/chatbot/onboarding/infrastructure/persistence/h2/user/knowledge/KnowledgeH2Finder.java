@@ -1,9 +1,8 @@
 package com.chatbot.onboarding.infrastructure.persistence.h2.user.knowledge;
 
-import com.chatbot.onboarding.domain.chatbot.KnowledgeFinder;
+import com.chatbot.onboarding.domain.chatbot.repository.KnowledgeFinder;
 import com.chatbot.onboarding.domain.knowledge.Knowledge;
 import org.springframework.stereotype.Repository;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.Arrays;
 import java.util.List;
