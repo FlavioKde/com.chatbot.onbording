@@ -1,5 +1,6 @@
 package com.chatbot.onboarding.domain.chatbot;
 
+import com.chatbot.onboarding.domain.chatbot.repository.KnowledgeFinder;
 import com.chatbot.onboarding.domain.knowledge.Knowledge;
 import com.chatbot.onboarding.shared.exception.exceptions.KnowledgeNotFoundException;
 

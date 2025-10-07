@@ -1,4 +1,4 @@
-package com.chatbot.onboarding.domain.chatbot;
+package com.chatbot.onboarding.domain.chatbot.repository;
 
 import com.chatbot.onboarding.domain.knowledge.Knowledge;
 import org.springframework.stereotype.Repository;
