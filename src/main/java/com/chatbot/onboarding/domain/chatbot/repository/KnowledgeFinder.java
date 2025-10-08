@@ -9,6 +9,5 @@ import java.util.Optional;
 @Repository
 public interface KnowledgeFinder {
 
-        Optional<String> findAnswerFor(String question);
         List<Knowledge> findByQuestionContainingIgnoreCase(String keyword);
 }

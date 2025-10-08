@@ -33,22 +33,5 @@ public class KnowledgeService {
                 return knowledgeRepository.findAll();
             }
 
-            public Knowledge findById(Long id) {
-                return knowledgeRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Knowledge with id " + id + " not found"));
-            }
-
-            public void deleteById(Long id) {
-                Knowledge existing = knowledgeRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Knowledge with id " + id + " not found"));
-
-                knowledgeRepository.deletedById(id);
-
-            }
-
-            public Optional<Knowledge> findByQuestion(String question) {
-                return knowledgeRepository.findByQuestion(question);
-            }
-
 
 }

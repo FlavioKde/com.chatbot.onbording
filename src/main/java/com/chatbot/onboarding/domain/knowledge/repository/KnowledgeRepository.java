@@ -8,10 +8,7 @@ import java.util.Optional;
 public interface KnowledgeRepository {
 
         Knowledge save(Knowledge knowledge);
-        Optional<Knowledge> findById(Long id);
-        Optional<Knowledge> findByQuestion(String question);
         List<Knowledge> findAll();
-        void deletedById(Long id);
         List<Knowledge> findByQuestionContainingIgnoreCase(String keyword);
 
 }

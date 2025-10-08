@@ -20,7 +20,7 @@ public class StartupRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        System.out.println("DEBUG: hilo de consola iniciado");
+
         startConsoleInSeparateThread();
 
         System.out.println("=== Sistema de Onboarding Iniciado ===");
@@ -43,41 +43,12 @@ public class StartupRunner implements CommandLineRunner {
     private void startConsoleInSeparateThread() {
         Thread consoleThread = new Thread(() -> {
             try {
-                System.out.println("DEBUG: hilo de consola iniciado");
+
                 Thread.sleep(2000);
 
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Asistente de Onboarding listo. Escribe 'exit' para salir.");
-                System.out.println("DEBUG: esperando entrada...");
-                /*
-                while (true) {
 
-                    System.out.print(" Tú: ");
-                    String input = scanner.nextLine().trim();
-
-                    if (input.equalsIgnoreCase("exit")) {
-                        System.out.println("¡Hasta pronto!");
-                        break;
-                    }
-
-                    if (!input.isEmpty()) {
-                        String response = knowledgeService.getResponse(input);
-                        System.out.println("Bot: " + response);
-                        System.out.println();
-                    }
-                }
-
-                scanner.close();
-            } catch (Exception e) {
-                System.out.println("Error en la consola: " + e.getMessage());
-            }
-        });
-
-        consoleThread.setDaemon(true); // No evita que Spring se cierre
-        consoleThread.start();
-    }
-
-                 */
 
                 while (true) {
                     String response = null;

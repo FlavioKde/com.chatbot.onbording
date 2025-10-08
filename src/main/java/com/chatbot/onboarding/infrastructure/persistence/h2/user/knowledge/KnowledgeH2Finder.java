@@ -19,20 +19,7 @@ public class KnowledgeH2Finder implements KnowledgeFinder {
         }
 
         @Override
-        public Optional<String> findAnswerFor(String question) {
-            return knowledgeEntityRepository.findByQuestion(question)
-                    .map(KnowledgeEntity::getAnswer);
-        }
-
-        @Override
         public List<Knowledge>findByQuestionContainingIgnoreCase(String keyword) {
-            /*
-            return knowledgeEntityRepository.findByQuestionContainingIgnoreCase(keyword)
-                    .stream()
-                    .map(KnowledgeEntityMapper::toDomain)
-                    .collect(Collectors.toList());
-
-             */
 
             String[] keywords = keyword.split("\\s+");
 
