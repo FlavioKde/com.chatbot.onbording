@@ -1,6 +1,7 @@
 package com.chatbot.onboarding;
 
 import com.chatbot.onboarding.application.service.KnowledgeService;
+import com.chatbot.onboarding.shared.exception.exceptions.KnowledgeNotFoundException;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -48,7 +49,9 @@ public class StartupRunner implements CommandLineRunner {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Asistente de Onboarding listo. Escribe 'exit' para salir.");
                 System.out.println("DEBUG: esperando entrada...");
+                /*
                 while (true) {
+
                     System.out.print(" Tú: ");
                     String input = scanner.nextLine().trim();
 
@@ -73,5 +76,47 @@ public class StartupRunner implements CommandLineRunner {
         consoleThread.setDaemon(true); // No evita que Spring se cierre
         consoleThread.start();
     }
+
+                 */
+
+                while (true) {
+                    String response = null;
+                    String input;
+
+                    do {
+                        System.out.print(" Tú: ");
+                        input = scanner.nextLine().trim();
+
+                        if (input.equalsIgnoreCase("exit")) {
+                            System.out.println("¡Hasta pronto!");
+                            scanner.close();
+                            return;
+                        }
+
+                        if (input.isEmpty()) {
+                            System.out.println("La pregunta no puede estar vacía. Intenta de nuevo.");
+                            continue;
+                        }
+
+                        try {
+                            response = knowledgeService.getResponse(input);
+                            System.out.println("Bot: " + response);
+                                System.out.println();
+                            } catch (KnowledgeNotFoundException e) {
+                                System.out.println("No se encontró respuesta para: \"" + input + "\"");
+                                System.out.println("Intenta con otra pregunta.");
+                            }
+
+                                } while (response == null || response.isBlank());
+                            }
+
+                        } catch (Exception e) {
+                            System.out.println("Error en la consola: " + e.getMessage());
+                        }
+                    });
+
+            consoleThread.setDaemon(true);
+            consoleThread.start();
+        }
 
 }
