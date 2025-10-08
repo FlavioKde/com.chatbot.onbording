@@ -35,6 +35,8 @@ dependencies {
 	// Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	testImplementation("org.mockito:mockito-core:5.11.0")
+	testImplementation("org.mockito:mockito-junit-jupiter:5.11.0")
 
 }
 
