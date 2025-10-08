@@ -146,10 +146,15 @@ The application uses in-memory H2 database by default (data persists until appli
 ### Examples Of Queries
 
 Tú: Hola, buen dia
-Bot: Muy bien y tu?
+
+Bot: Hola, que tal
+
 Tú: Donde firmo mi contrato?
+
 Bot: En la oficina de RRHH, debes solicitar cita previa
+
 Tú: exit
+
 Bot: 👋 Hasta luego!
 
 ## ✅ Proves de l'aplicació
@@ -176,6 +181,7 @@ Includes:
 
 Flavio — freelance WebDeveloper  
 Les Fonts de Terrassa, Catalunya  
+
 
 
 
