@@ -1,5 +1,5 @@
 
-INSERT INTO knowledge(question, answer) VALUES('Hola, buen día?', 'Muy bien y tu?.');
+INSERT INTO knowledge(question, answer) VALUES('Hola, buen día?', 'Hola, que tal?.');
 INSERT INTO knowledge(question, answer) VALUES('¿Quién es mi manager/mentor asignado?', 'Debes preguntar en RRHH, o ellos se comunicaran en la brevedad');
 INSERT INTO knowledge(question, answer) VALUES('¿Dónde encuentro el organigrama de la empresa?', 'Tablones de anuncios, junto a RRHH"');
 INSERT INTO knowledge(question, answer) VALUES('¿Qué documentación debo entregar?', 'Debes entregar documentación en RRHH: DNI, titulación y cuenta bancaria.');
