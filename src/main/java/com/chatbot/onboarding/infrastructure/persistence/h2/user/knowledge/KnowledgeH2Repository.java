@@ -27,24 +27,9 @@ public class KnowledgeH2Repository implements KnowledgeRepository {
             }
 
             @Override
-            public Optional<Knowledge> findById(Long id) {
-                return knowledgeEntityRepository.findById(id).map(KnowledgeEntityMapper::toDomain);
-            }
-
-            @Override
             public List<Knowledge> findAll(){
                 return knowledgeEntityRepository.findAll().stream().map(KnowledgeEntityMapper::toDomain).collect(Collectors.toList());
 
-            }
-
-            @Override
-            public void deletedById(Long id){
-                knowledgeEntityRepository.deleteById(id);
-            }
-
-            @Override
-            public Optional<Knowledge> findByQuestion(String question) {
-                return knowledgeEntityRepository.findByQuestion(question).map(KnowledgeEntityMapper::toDomain);
             }
 
             @Override
