@@ -14,7 +14,7 @@ import java.util.Optional;
 public class KnowledgeService {
 
             private final KnowledgeRepository knowledgeRepository;
-            private Chatbot chatbot;
+            private final Chatbot chatbot;
 
             public KnowledgeService(KnowledgeRepository knowledgeRepository, Chatbot chatbot) {
                 this.knowledgeRepository = knowledgeRepository;
@@ -38,7 +38,7 @@ public class KnowledgeService {
                         .orElseThrow(() -> new EntityNotFoundException("Knowledge with id " + id + " not found"));
             }
 
-            public void deletedById(Long id) {
+            public void deleteById(Long id) {
                 Knowledge existing = knowledgeRepository.findById(id)
                         .orElseThrow(() -> new EntityNotFoundException("Knowledge with id " + id + " not found"));
 
